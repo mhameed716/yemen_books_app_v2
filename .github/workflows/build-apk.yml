@@ -1,4 +1,4 @@
-name: Build Android APK
+Entername: Build Android APK
 
 on:
   push:
@@ -26,6 +26,12 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Auto Create Android Folder if Missing
+        run: |
+          if [ ! -d "android" ]; then
+            flutter create . --platforms android
+          fi
+
       - name: Install dependencies
         run: flutter pub get
 
@@ -36,4 +42,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: yemen-curriculum-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: "**/build/app/outputs/flutter-apk/app-release.apk"
