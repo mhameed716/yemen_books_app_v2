@@ -5,8 +5,8 @@ pluginManagement {
         if (propertiesFile.exists()) {
             propertiesFile.withReader('UTF-8') { reader -> properties.load(reader) }
         }
-        def sdkPath = properties.getProperty('flutter.sdk')
-        assert sdkPath != null, "flutter.sdk not set in local.properties"
+        def sdkPath = properties.getProperty('flutter.sdk') ?: System.getenv('FLUTTER_ROOT') ?: System.getenv('FLUTTER_HOME')
+        assert sdkPath != null, "flutter.sdk not set in local.properties or environment variables"
         return sdkPath
     }()
 
