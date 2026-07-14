@@ -1,0 +1,24 @@
+name: yemen_books_app
+description: "A flutter application to view Yemen curriculum books."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # مكتبة عرض الـ PDF
+  syncfusion_flutter_pdfviewer: ^24.2.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/books/chemistry.pdf
+
